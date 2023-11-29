@@ -1,0 +1,32 @@
+<h3> Listado de gemas </h3>
+
+<div *ngIf="deletedGem; else nothingWasDeleted">
+  <h3>
+    Gema borrada
+    <small class = 'text-danger'>
+      {{deletedGem}}
+    </small>
+  </h3>
+</div>
+
+<ng-template #nothingWasDeleted>
+  <h3 >
+    No ha borrado nada.
+  </h3>
+
+</ng-template>
+<button
+*ngIf="gemNames.length > 0"
+  (click)="removeLastGem()"
+  class="btn btn-outline-danger">
+  Delete last gem
+</button>
+
+<ul class="mt-2 list-group">
+  <li
+    *ngFor="let name of gemNames"     class="list-group-item">
+      {{name}}
+  </li>
+
+
+</ul>
